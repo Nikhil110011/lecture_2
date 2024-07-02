@@ -4,45 +4,96 @@
       <style>
  
   
-       h1{
-        background-color: black; color: white; width: 50%;
-        border-radius: 40px;
-       }
-       *{
-        font-size: 40px;
-       }
-       body{
-        background-color: lightblue;
-       }
-      </style>
+        h1{
+         background-color: black; color: white; width: 50%;
+         border-radius: 40px;
+        }
+        *{
+         font-size: 40px;
+        }
+        body{
+         background-color: lightblue;
+        }
+       </style>
     </head>
     <body>
+      
+      
         <center>
-      <h1>Addition Application</h1>
-    
-        <form onsubmit="show()">
-            
-            <input type="submit" value="Red">
-            <input type="submit" value="Green">
-            <input type="submit" value="Blue">
-            </form>
+            <h1>EvenOdd Application</h1>
+            <form onsubmit="add()">
+                <input type="number"  placeholder="Enter first number" id="num">
+                <br><br>
+             
+               
+                <input type="submit" value="M1">
+                <input type="submit" value="M2">
+                <input type="submit" value="M3">
+                </form>
+                <h2 id="msg"></h2>
         </center>
-            
       
       
       <script>
-        function show(){
-        event.preventDefault();
-        let action= document.activeElement.value;
-        if(action== "Red"){
-            document.body.style.backgroundColor="red";
+        function add(){
+            event.preventDefault();
+            let num1=document.getElementById("num");
+           
+            let msg=document.getElementById("msg");
+           
+            if(num.value=="")
+            {
+                alert("You did not enter number");
+                msg.innerHTML="";
+                num1.focus();
+                return;
+            }
+            
+            let action= document.activeElement.value;
+            if(action== "M1"){
+            let n1=parseFloat(num1.value);
+            let ans=n1%2==0?"Even":"odd";
+            msg.innerHTML="The Answer Through Ternory Operator is : "+ ans
         }
-        else if(action== "Green"){
-            document.body.style.backgroundColor="green";
+            else if(action== "M2"){
+            let n1=parseFloat(num1.value);
+            let ans= "";
+            
+            if(n1%2==0){
+             let ans= "Even";
+             msg.innerHTML="The Answer Through If/Else Operator is : "+ ans
+            }
+            else{
+            let ans= "Odd";
+            msg.innerHTML="The Answer Through if/Else Operator is : "+ ans
+            }
+            
         }
-        else
-            document.body.style.backgroundColor="Blue";
-        
+            else if(action== "M3"){
+            let n1=parseFloat(num1.value);
+           
+            switch(n1%2){
+                case 0: {
+                    let ans="Even";
+                msg.innerHTML="The Answer Through Switch Case Operator is : "+ ans;
+                break;
+            }
+                case 1: {
+                    let ans="Odd";
+                msg.innerHTML="The Answer Through Switch Case Operator is : "+ ans;
+                break;
+            }
+                case -1: {ans="Odd";
+                msg.innerHTML="The Answer Through if/Else Operator is : "+ ans;
+                break;
+            }
+
+                
+            }
+                
+            
+           
+        }
         }
       </script>
     </body>
